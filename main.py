@@ -35,7 +35,7 @@ def salvar_no_banco(dados):
                 item.descricao,
                 item.quantidade,
                 item.valor_unitario,
-                item.valor_total_item # NOVO CAMPO ADICIONADO AQUI
+                item.valor_total_item
             ))
             
         conexao.commit()
@@ -55,10 +55,9 @@ if __name__ == "__main__":
     print("="*50)
     
     try:
-        # Passo Único: Enviar o arquivo direto para a IA analisar visualmente
+        # Envia o arquivo direto para a IA analisar visualmente
         dados_processados = processar_nota_com_ia(arquivo_alvo)
         
-        # Salvar no banco
         salvar_no_banco(dados_processados)
         
         print("🏆 PROCESSAMENTO CONCLUÍDO COM SUCESSO!")
