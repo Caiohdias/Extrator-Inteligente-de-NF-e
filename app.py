@@ -3,14 +3,12 @@ import pandas as pd
 import streamlit as st
 from ai_processor import processar_nota_com_ia
 
-# Configuração da página para ocupar mais espaço na tela e ter um visual limpo
 st.set_page_config(
     page_title="Extrator Inteligente de NF-e",
     page_icon="📄",
     layout="wide"
 )
 
-# Estilização CSS leve para os cartões de métricas se adaptarem ao tema escuro/claro
 st.markdown("""
     <style>
     .stMetric {
@@ -21,15 +19,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Função para conectar ao banco e carregar os dados formatados para o Pandas
 @st.cache_data(ttl=2) 
 def carregar_dados_banco():
     conexao = sqlite3.connect("notas_fiscais.db")
     
-    # Carrega a tabela de notas fiscais
     df_notas = pd.read_sql_query("SELECT * FROM notas_fiscais", conexao)
     
-    # Carrega a tabela de itens fazendo um JOIN para trazer o nome da empresa emitente junto
     query_itens = """
         SELECT 
             n.emitente as Empresa,
@@ -45,11 +40,9 @@ def carregar_dados_banco():
     conexao.close()
     return df_notas, df_itens
 
-# Título principal com ícone
 st.title("📄 Extrator Inteligente de Notas Fiscais (IA + SQL)")
 st.write("Automatize a leitura de DANFE/NF-e usando inteligência artificial multimodal e organize tudo em um banco de dados relacional.")
 
-# Criando as Abas (Tabs) da aplicação
 aba_processar, aba_dashboard = st.tabs(["🚀 Processar Nova Nota", "📊 Painel de controle e histórico"])
 
 # ==========================================
@@ -111,7 +104,7 @@ with aba_processar:
                     st.error(f"❌ Ocorreu um erro durante o processamento: {e}")
 
 # ==========================================
-# ABA 2: DASHBOARD & HISTÓRICO
+# ABA 2: DASHBOARD e HISTÓRICO
 # ==========================================
 with aba_dashboard:
     df_notas, df_itens = carregar_dados_banco()
