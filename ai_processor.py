@@ -10,12 +10,11 @@ from dotenv import load_dotenv
 # Carrega a chave do .env
 load_dotenv()
 
-# Definimos exatamente o formato que queremos receber
 class ItemNota(BaseModel):
     descricao: str
     quantidade: float
     valor_unitario: float
-    valor_total_item: float # NOVO CAMPO ADICIONADO AQUI
+    valor_total_item: float
 
 class NotaFiscal(BaseModel):
     numero: str
@@ -40,12 +39,10 @@ def processar_nota_com_ia(caminho_arquivo):
     4. Converta valores monetários para números de Python (ex: 230,00 vira 230.0).
     5. Se não encontrar algo de forma nítida, retorne vazio ou 0.
     """
-
-    # Lemos o arquivo PDF diretamente do seu computador em formato "bruto" (bytes)
+    
     print(f"📄 Carregando arquivo PDF: '{caminho_arquivo}'...")
     pdf_bytes = Path(caminho_arquivo).read_bytes()
     
-    # Empacotamos o PDF no formato que a API do Gemini exige
     documento_pdf = types.Part.from_bytes(data=pdf_bytes, mime_type='application/pdf')
 
     for tentativa in range(3):
@@ -53,12 +50,11 @@ def processar_nota_com_ia(caminho_arquivo):
             print(f"👁️ A IA está 'olhando' o PDF visualmente (Tentativa {tentativa + 1})...")
             response = client.models.generate_content(
                 model='gemini-3.5-flash',
-                # Enviamos o texto (prompt) e o arquivo PDF (documento_pdf) juntos!
                 contents=[prompt, documento_pdf],
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     response_schema=NotaFiscal,
-                    temperature=0.0 # Zero criatividade, foco total na precisão
+                    temperature=0.0 
                 ),
             )
             return response.parsed 
