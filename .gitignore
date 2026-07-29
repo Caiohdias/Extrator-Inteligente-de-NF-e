@@ -1,0 +1,6 @@
+venv/
+   .env
+   __pycache__/
+   *.db
+   temp_nota.pdf
+   .DS_Store
