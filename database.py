@@ -6,7 +6,7 @@ def inicializar_banco():
 
     cursor.execute("PRAGMA foreign_keys = ON;")
 
-    # Tabela 1: Guarda os dados do cabeçalho da Nota Fiscal
+    #Tabela 1: Guarda os dados do cabeçalho da Nota Fiscal
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS notas_fiscais (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,7 +18,7 @@ def inicializar_banco():
         );
     """)
 
-    # Tabela 2: Guarda os produtos e faz um vínculo (id_nota) com a tabela notas_fiscais
+    #Tabela 2: Guarda os produtos e faz um vínculo (id_nota) com a tabela notas_fiscais
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS itens_nota (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
