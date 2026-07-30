@@ -1,7 +1,7 @@
-from database import inicializar_banco
 import sqlite3
 import pandas as pd
 import streamlit as st
+from database import inicializar_banco
 from ai_processor import processar_nota_com_ia
 
 # ... importações ...
