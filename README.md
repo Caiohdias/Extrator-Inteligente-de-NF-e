@@ -8,6 +8,13 @@ A entrada manual de dados fiscais é um processo lento, caro e sujeito a erros. 
 ## 🚀 A Solução
 O sistema utiliza o modelo **Gemini 3.5 Flash** para análise visual, permitindo que a IA identifique itens, valores e datas em documentos digitalizados, ignorando elementos visuais sem valor fiscal e garantindo uma extração de dados estruturada e tipada via **Pydantic**.
 
+## 🚀 Acesse a Aplicação
+O projeto está hospedado e funcionando online. Para testar o sistema, clique no link abaixo:
+
+**[👉 Clique aqui para acessar o Extrator Inteligente de NF-e](https://extrator-inteligente-de-nf-e.onrender.com)**
+
+---
+
 ## ⚙️ Arquitetura do Projeto
 1. **Ingestão:** O script carrega o arquivo PDF em formato binário.
 2. **Processamento (IA Multimodal):** Envio da imagem à API do Gemini para conversão de dados não estruturados (PDF) em objetos JSON estruturados.
@@ -27,10 +34,4 @@ O sistema utiliza o modelo **Gemini 3.5 Flash** para análise visual, permitindo
 *   **Processamento de Dados:** Pandas
 *   **IA:** Google Gemini (Generative AI SDK)
 *   **Estruturação:** Pydantic
-
-## 📦 Como rodar o projeto
-
-1. **Clone o repositório:**
-```bash
-   git clone [https://github.com/Caiohdias/Extrator-Inteligente-de-NF-e.git](https://github.com/Caiohdias/Extrator-Inteligente-de-NF-e.git)
-   cd Extrator-Inteligente-de-NF-e
+*   **Deploy:** Render
