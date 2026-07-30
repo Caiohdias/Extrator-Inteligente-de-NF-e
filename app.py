@@ -1,7 +1,13 @@
+from database import inicializar_banco
 import sqlite3
 import pandas as pd
 import streamlit as st
 from ai_processor import processar_nota_com_ia
+
+# ... importações ...
+    inicializar_banco()
+    
+    st.set_page_config(...)
 
 st.set_page_config(
     page_title="Extrator Inteligente de NF-e",
