@@ -7,7 +7,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 
-# Carrega a chave do .env
+#Carrega a chave do .env
 load_dotenv()
 
 class ItemNota(BaseModel):
