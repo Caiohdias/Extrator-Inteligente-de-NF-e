@@ -31,7 +31,6 @@ O sistema utiliza o modelo **Gemini 3.5 Flash** para análise visual, permitindo
 ## 📦 Como rodar o projeto
 
 1. **Clone o repositório:**
-   
 ```bash
    git clone [https://github.com/Caiohdias/Extrator-Inteligente-de-NF-e.git](https://github.com/Caiohdias/Extrator-Inteligente-de-NF-e.git)
    cd Extrator-Inteligente-de-NF-e
