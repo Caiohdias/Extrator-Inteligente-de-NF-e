@@ -8,7 +8,6 @@ st.set_page_config(
     page_icon="📄",
     layout="wide"
 )
-
 st.markdown("""
     <style>
     .stMetric {
